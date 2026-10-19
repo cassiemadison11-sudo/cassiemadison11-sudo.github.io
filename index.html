@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support My Work</title>
+<style>
+  :root { --bg:#f6f7fb; --card:#ffffff; --text:#1f2430; --muted:#5d6475; --accent:#4f46e5; --accent-dark:#4338ca; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#13151c; --card:#1c1f2a; --text:#eef0f6; --muted:#a3a9ba; --accent:#7c76ff; --accent-dark:#9a95ff; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+         background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .card { background:var(--card); max-width:460px; width:100%; padding:40px 32px; border-radius:20px; text-align:center;
+          box-shadow:0 10px 30px rgba(0,0,0,.08); }
+  h1 { margin:0 0 12px; font-size:1.9rem; }
+  p { color:var(--muted); line-height:1.6; margin:0 0 24px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600;
+         padding:14px 32px; border-radius:999px; font-size:1.05rem; transition:background .2s, transform .1s; }
+  .btn:hover { background:var(--accent-dark); }
+  .btn:active { transform:scale(.98); }
+  .btn.disabled { opacity:.55; pointer-events:none; }
+  .note { margin-top:20px; font-size:.85rem; color:var(--muted); }
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1>Support My Work</h1>
+    <p>Thanks for stopping by! If you like what I do, you can chip in with a small payment. Every bit helps and I really appreciate it.</p>
+    <a id="pay" class="btn" href="PAYMENT_LINK_HERE">Pay Now</a>
+    <div class="note" id="note"></div>
+  </main>
+  <script>
+    // To activate the button, replace PAYMENT_LINK_HERE in the <a> tag above with your real payment link
+    // (Stripe, PayPal, Ko-fi, etc.).
+    var btn = document.getElementById('pay');
+    if (btn.getAttribute('href') === 'PAYMENT_LINK_HERE') {
+      btn.classList.add('disabled');
+      btn.removeAttribute('href');
+      btn.textContent = 'Coming soon';
+      document.getElementById('note').textContent = 'Payments will open here shortly.';
+    }
+  </script>
+</body>
+</html>
